@@ -1,4 +1,5 @@
 import 'package:first_project/components/task.dart';
+import 'package:first_project/data/task_dao.dart';
 import 'package:first_project/data/task_inherited.dart';
 import 'package:flutter/material.dart';
 
@@ -131,7 +132,7 @@ class _FormScreenState extends State<FormScreen> {
                       ElevatedButton(
                           onPressed: () {
                             if (_formKey.currentState!.validate()) {
-                              TaskInherited.of(widget.taskContext).taskList.add(Task(
+                              TaskDao().save(Task(
                                   nameController.text,
                                   imageController.text,
                                   int.parse(difficultyController.text)));

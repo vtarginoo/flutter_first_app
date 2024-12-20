@@ -4,6 +4,7 @@ import 'package:path/path.dart';
 
 Future<Database> getDatabase() async {
   final String path = join(await getDatabasesPath(), 'task.db');
+  print(path);
   return openDatabase(path, onCreate: (db, version) {
     db.execute(TaskDao.tableSql);
   }, version: 1);
